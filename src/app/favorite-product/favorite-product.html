@@ -1,0 +1,8 @@
+<p>favorite-product works!</p>
+@for (product of productList(); track $index) {
+  <div class="card" class="col-md-8 m-3">
+      <div class="card-body d-flex justify-content-around w-50 border border-1">
+        <h5 class="card-title">{{ product.title }}</h5>
+      </div>
+    </div>
+}

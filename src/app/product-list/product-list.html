@@ -1,0 +1,29 @@
+<p>product-list works!</p>
+<div class="d-flex flex-wrap justify-content-center gap-5">
+  @for (product of productList; track product.id) {
+      <div class="card" class="col-md-3 border border-1" #card appShadow>
+        <div class="image-container" (mouseenter)="showProductDetails(product.id)" (mouseleave)="hideProductDetails()" >
+          <img [src]="product.thumbnail" class="card-img-top" alt="...">
+          @if (hoveredProductId === product.id) {
+            <div class="hover-overlay">
+              <div class="hover-details">
+                <p><strong>Rating:</strong> {{ product.rating }}🌟🌟🌟</p>
+                <p><strong>Stock:</strong> {{ product.stock }}</p>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">Price: {{ product.price }}$</p>
+          <div class="d-flex gap-2">
+            <input type="button" value="Add to cart" class="btn btn-primary" (click)="addSelectedProduct(product)">
+            <button href="#" class="btn" (click)="addFavProduct(product)">
+              <i class="fa-heart" [class.fa-solid]="isFavorite(product.id)" [class.fa-regular]="!isFavorite(product.id)" [style.color]="isFavorite(product.id) ? 'red' : ''"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+  }
+</div>
