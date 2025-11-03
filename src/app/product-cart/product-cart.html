@@ -1,9 +1,11 @@
-<p>product-cart works!</p>
-@for (product of productList(); track product.id) {
-  <div class="card" class="col-md-8 m-3">
-      <div class="card-body d-flex justify-content-around w-50 border border-1">
-        <h5 class="card-title">{{ product.title }}</h5>
-        <input type="button" value="Delete" class="btn btn-danger" (click)="deleteProduct(product.id)">
+<div class="d-flex flex-column align-items-center">
+  <h1>Shop Cart</h1>
+  @for (product of productList(); track product.id) {
+    <div class="card" class="col-md-8 m-3">
+        <div class="card-body d-flex justify-content-around border border-1" appShadow>
+          <h5 class="card-title">{{ product.title }}</h5>
+          <input type="button" value="Delete" class="btn btn-danger" (click)="deleteProduct(product.id)">
+        </div>
       </div>
-    </div>
-}
+  }
+</div>

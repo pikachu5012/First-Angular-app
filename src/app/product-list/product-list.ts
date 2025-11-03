@@ -1,14 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { Products } from './products/products';
 import { Shadow } from './shadow';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
-  imports: [Shadow],
+  imports: [Shadow, RouterLink],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  router = inject(Router);
   productServ = inject(Products)
   productList = this.productServ.getAllProduct()
   favoriteProducts = this.productServ.getFavProduct()

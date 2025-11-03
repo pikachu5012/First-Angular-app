@@ -1,1 +1,19 @@
-<p>product-details works!</p>
+<!-- Day4 Task -->
+<div class="d-flex flex-column align-items-center">
+  <h1>Product <span class="text-success">{{productId}}</span> Details</h1>
+  <div class="d-flex border border-1 p-5 mt-5 mx-4">
+    @if(product){
+      <img [src]="product.images[0]" class="w-25" appShadow>
+      <div class="mx-3 d-flex flex-column gap-3" appShadow>
+        <h3>{{product.title}}</h3>
+        <div class="w-50">{{ product.description }}</div>
+        <div>Price: <span class="text-success">{{ product.price }}$</span></div>
+        <div>Rating: <span class="text-warning">{{ product.rating }}</span></div>
+        <div>Category:  <span class="text-secondary">{{ product.category }}</span></div>
+        <div>Discount:  <span class="text-decoration-line-through p-2">{{product.price}} $</span> <span class="text-success">{{ product.discountPercentage }} $</span></div>
+        <div>Stock:  <span class="text-danger">{{ product.availabilityStatus }}</span></div>
+      </div>
+    }
+  </div>
+</div>
+

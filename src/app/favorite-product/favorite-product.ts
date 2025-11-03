@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Products } from '../product-list/products/products';
+import { Shadow } from "../product-list/shadow";
 
 @Component({
   selector: 'app-favorite-product',
-  imports: [],
+  imports: [Shadow],
   templateUrl: './favorite-product.html',
   styleUrl: './favorite-product.css',
 })

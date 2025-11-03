@@ -46,3 +46,14 @@
     opacity: 1;
   }
 }
+.cardTitle{
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cardTitle:hover{
+  color: rgb(239, 188, 121);
+}
+.image-container{
+  transition: all 0.3s ease;
+}
+

@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Products } from '../product-list/products/products';
+import { Shadow } from "../product-list/shadow";
 
 @Component({
   selector: 'app-product-cart',
-  imports: [],
+  imports: [Shadow],
   templateUrl: './product-cart.html',
   styleUrl: './product-cart.css',
 })
