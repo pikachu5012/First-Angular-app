@@ -7,15 +7,10 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductList, ProductCart, FavoriteProduct, Nav, RouterOutlet],
+  imports: [ Nav, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('day-3-task');
-
-  constructor() {
-    // Set auth in localStorage for testing
-    // localStorage.setItem('auth', JSON.stringify({ auth: false }));
-  }
 }
