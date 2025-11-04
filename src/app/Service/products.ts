@@ -30,7 +30,7 @@ export class Products {
           localStorage.setItem('auth', JSON.stringify({ auth: true }));
           this.router.navigate(['/']);
         } else {
-          alert ('Invalid UserName or Password')
+          alert ('Invalid UserName or Password Try to SignUp first ')
         }
       }
     })
