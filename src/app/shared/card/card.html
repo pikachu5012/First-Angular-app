@@ -1,0 +1,24 @@
+<div class="card" class="border border-1">
+        <div class="image-container" (mouseenter)="showProductDetails(product().id)" (mouseleave)="hideProductDetails()" appShadow>
+          <img [src]="product().thumbnail" class="card-img-top" alt="...">
+          @if (hoveredProductId === product().id) {
+            <div class="hover-overlay">
+              <div class="hover-details">
+                <p><strong>Rating:</strong> {{ product().rating }}🌟🌟🌟</p>
+                <p><strong>Stock:</strong> {{ product().stock }}</p>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="card-body">
+          <h5 class="card-title cardTitle" [routerLink]="['/ProductDetails', product().id]">{{ product().title }}</h5>
+          <p class="card-text">{{ product().description | textSlice : 30}}</p>
+          <p class="card-text text-success">Price: {{ product().price | currency : "JPY"}}</p>
+          <div class="d-flex gap-2">
+            <input type="button" value="Add to cart" class="btn btn-primary" (click)="addSelectedProduct(product())">
+            <button href="#" class="btn" (click)="addFavProduct(product())">
+              <i class="fa-heart" [class.fa-solid]="isFavorite(product().id)" [class.fa-regular]="!isFavorite(product().id)" [style.color]="isFavorite(product().id) ? 'red' : ''"></i>
+            </button>
+          </div>
+        </div>
+      </div>

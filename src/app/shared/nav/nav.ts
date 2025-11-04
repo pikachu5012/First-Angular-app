@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { Products } from '../../product-list/products/products';
+import { Products } from '../../Service/products';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,6 +10,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Nav {
   //Day4 Task
-  productServ = inject(Products)
-  selectedProduct = this.productServ.getSelectedProductSignal()
+  productServ = inject(Products);
+  selectedProduct = this.productServ.getSelectedProductSignal();
 }

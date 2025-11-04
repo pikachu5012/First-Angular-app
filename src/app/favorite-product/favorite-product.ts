@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Products } from '../product-list/products/products';
-import { Shadow } from "../product-list/shadow";
+import { Products } from '../Service/products';
+import { Shadow } from '../product-list/shadow';
 
 @Component({
   selector: 'app-favorite-product',
@@ -9,6 +9,6 @@ import { Shadow } from "../product-list/shadow";
   styleUrl: './favorite-product.css',
 })
 export class FavoriteProduct {
-  productServ = inject(Products)
-  productList = this.productServ.getFavProduct()
+  productServ = inject(Products);
+  productList = this.productServ.getFavProduct();
 }

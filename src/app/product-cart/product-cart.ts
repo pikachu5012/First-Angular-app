@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Products } from '../product-list/products/products';
-import { Shadow } from "../product-list/shadow";
+import { Products } from '../Service/products';
+import { Shadow } from '../product-list/shadow';
 
 @Component({
   selector: 'app-product-cart',
@@ -9,10 +9,10 @@ import { Shadow } from "../product-list/shadow";
   styleUrl: './product-cart.css',
 })
 export class ProductCart {
-  productServ = inject(Products)
-  productList = this.productServ.getSelectedProductSignal()
+  productServ = inject(Products);
+  productList = this.productServ.getSelectedProductSignal();
 
-  deleteProduct(productId: number){
+  deleteProduct(productId: number) {
     this.productServ.removeProductFromCart(productId);
   }
 }

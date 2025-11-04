@@ -9,7 +9,7 @@ import { FavoriteProduct } from './favorite-product/favorite-product';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'ProductList', pathMatch: 'full'},
-  {path: 'ProductList', component: ProductList, canActivate: [authGuardGuard]},
+  {path: 'ProductList', component: ProductList},
   {path: 'ProductDetails/:id', component: ProductDetails},
   {path: 'ProductCart', component: ProductCart},
   {path: 'FavoriteProduct', component: FavoriteProduct},

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Products } from '../product-list/products/products';
-import { Iproduct } from '../product-list/products/iproduct';
+import { Products } from '../Service/products';
+import { Iproduct } from '../Service/iproduct';
 import { Shadow } from '../product-list/shadow';
 
 @Component({
@@ -12,15 +12,15 @@ import { Shadow } from '../product-list/shadow';
 })
 export class ProductDetails {
   activrout = inject(ActivatedRoute);
-  productServ = inject(Products)
+  productServ = inject(Products);
   productId = 0;
   product: Iproduct | undefined;
 
-  constructor(){
+  constructor() {
     this.activrout.params.subscribe((params) => {
       console.log(params);
-      this.productId = params["id"];
+      this.productId = params['id'];
       this.product = this.productServ.getProductById(this.productId);
-    })
+    });
   }
 }
