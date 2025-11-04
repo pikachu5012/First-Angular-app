@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Products } from '../Service/products';
 import { Router, RouterLink } from '@angular/router';
 import { Card } from '../shared/card/card';
+import { Iproduct } from '../Service/iproduct';
 
 @Component({
   selector: 'app-product-list',
@@ -15,23 +16,12 @@ export class ProductList {
   productList = this.productServ.getAllProduct();
   favoriteProducts = this.productServ.getFavProduct();
   hoveredProductId: number | null = null;
-
-  // addSelectedProduct(product: any) {
-  //   this.productServ.addSignalProduct(product);
-  // }
-  // addFavProduct(product: any) {
-  //   this.productServ.addFavProduct(product);
-  // }
-
-  // isFavorite(productId: number): boolean {
-  //   return this.favoriteProducts().some((p) => p.id === productId);
-  // }
-
-  // showProductDetails(productId: number) {
-  //   this.hoveredProductId = productId;
-  // }
-
-  // hideProductDetails() {
-  //   this.hoveredProductId = null;
-  // }
+  //Day 5
+  products!: Iproduct[];
+  constructor(){
+    this.productList.subscribe((p: any)=>{
+      this.products = p['products']
+      console.log(p)
+    })
+  }
 }

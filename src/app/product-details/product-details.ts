@@ -14,13 +14,16 @@ export class ProductDetails {
   activrout = inject(ActivatedRoute);
   productServ = inject(Products);
   productId = 0;
-  product: Iproduct | undefined;
+  product!: Iproduct;
 
   constructor() {
     this.activrout.params.subscribe((params) => {
       console.log(params);
       this.productId = params['id'];
-      this.product = this.productServ.getProductById(this.productId);
+      //Day 5
+      this.productServ.getProductById(this.productId).subscribe((p: any)=>{
+        this.product=p
+      })
     });
   }
 }

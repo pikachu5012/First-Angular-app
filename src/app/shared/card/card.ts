@@ -18,9 +18,9 @@ export class Card {
   productList = this.productServ.getAllProduct();
   favoriteProducts = this.productServ.getFavProduct();
   hoveredProductId: number | null = null;
-
+  //Day 5 using input 
   product = input.required<Iproduct>();
-
+///////
   addSelectedProduct(product: any) {
     this.productServ.addSignalProduct(product);
   }

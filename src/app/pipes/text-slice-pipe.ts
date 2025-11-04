@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'textSlice'
 })
 export class TextSlicePipe implements PipeTransform {
-
+//Day 5
   transform(value: string, args: number): string {
     return value.slice(0, args) + "...";
   }

@@ -1,3 +1,4 @@
+<!-- Day 5 -->
 <div class="card" class="border border-1">
         <div class="image-container" (mouseenter)="showProductDetails(product().id)" (mouseleave)="hideProductDetails()" appShadow>
           <img [src]="product().thumbnail" class="card-img-top" alt="...">
@@ -12,7 +13,9 @@
         </div>
         <div class="card-body">
           <h5 class="card-title cardTitle" [routerLink]="['/ProductDetails', product().id]">{{ product().title }}</h5>
+          <!-- Day 5 using a custom Pipe -->
           <p class="card-text">{{ product().description | textSlice : 30}}</p>
+          <!-- Day 5 using a currency pipe to change the currency infront of the price -->
           <p class="card-text text-success">Price: {{ product().price | currency : "JPY"}}</p>
           <div class="d-flex gap-2">
             <input type="button" value="Add to cart" class="btn btn-primary" (click)="addSelectedProduct(product())">

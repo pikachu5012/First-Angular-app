@@ -1,5 +1,6 @@
 <div class="d-flex flex-wrap justify-content-center gap-5 mb-5">
-  @for (product of productList; track product.id) {
+  @for (product of products; track product.id) {
+    <!-- Day 5-->
       <app-card [product]="product" class="col-md-3"/>
   }
 </div>
