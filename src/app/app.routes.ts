@@ -6,13 +6,15 @@ import { NotFound } from './not-found/not-found';
 import { authGuardGuard } from './auth-guard-guard';
 import { ProductCart } from './product-cart/product-cart';
 import { FavoriteProduct } from './favorite-product/favorite-product';
+import { ReactiveForm } from './reactive-form/reactive-form';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'ProductList', pathMatch: 'full'},
-  {path: 'ProductList', component: ProductList},
+  {path: 'ProductList', component: ProductList, canActivate: [authGuardGuard]},
   {path: 'ProductDetails/:id', component: ProductDetails},
   {path: 'ProductCart', component: ProductCart},
   {path: 'FavoriteProduct', component: FavoriteProduct},
+  {path: 'AddUser', component: ReactiveForm},
   {path: 'login', loadComponent: () => import('./login/login').then(m => m.Login)},
   { path: '**', component: NotFound }
 ];

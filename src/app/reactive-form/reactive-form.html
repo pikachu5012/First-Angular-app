@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input class="form-control" formControlName="firstName" placeholder="First name" />
+            @if(form.get('firstName')?.touched && form.get('firstName')?.invalid){
+              <div class="text-danger small">
+                @if(form.get('firstName')?.errors?.['required']){<span>First name is required</span>}
+                @if(form.get('firstName')?.errors?.['minlength']){<span>Min length is 5</span>}
+                @if(form.get('firstName')?.errors?.['maxlength']){<span>Max length is 10</span>}
+              </div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input class="form-control" formControlName="lastName" placeholder="Last name" />
+            @if(form.get('lastName')?.touched && form.get('lastName')?.invalid){
+              <div class="text-danger small">Last name is required</div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" type="email" formControlName="email" placeholder="Email" />
+            @if(form.get('email')?.touched && form.get('email')?.invalid){
+              <div class="text-danger small">
+                @if(form.get('email')?.errors?.['required']){<span>Email is required</span>}
+                @if(form.get('email')?.errors?.['email']){<span>Enter a valid email</span>}
+              </div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Image URL</label>
+            <input class="form-control" formControlName="imageUrl" placeholder="https://..." />
+            @if(form.get('imageUrl')?.touched && form.get('imageUrl')?.invalid){
+              <div class="text-danger small">Image URL is required</div>
+            }
+          </div>
+
+          <button class="btn btn-success" type="submit" [disabled]="form.invalid">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  @if(savedUsers.length){
+    <div class="row mt-4">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (u of savedUsers; track u.email) {
+                <tr>
+                  <td>{{ u.firstName }}</td>
+                  <td>{{ u.lastName }}</td>
+                  <td>{{ u.email }}</td>
+                  <td><img [src]="u.imageUrl" alt="img" style="height:40px;width:40px;object-fit:cover;border-radius:4px;" /></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  }
+</div>

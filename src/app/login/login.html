@@ -1,1 +1,45 @@
-<p>Hello From Login</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card shadow-sm p-4">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <div class="mb-3">
+            <label for="name" class="form-lable">User Name :</label>
+            <input
+              type="text"
+              id="name"
+              name="userName"
+              ngModel
+              required
+              class="form-control"
+              placeholder="Enter Your Name"
+              #userName="ngModel"
+              >
+              @if(userName.invalid && (userName.touched || form.submitted)){
+                <span class="text-danger">User Name is required !</span>
+              }
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-lable">Password :</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              ngModel
+              required
+              class="form-control"
+              placeholder="Enter Your Password"
+              #password="ngModel">
+            @if(password.invalid && (password.touched || form.submitted)){
+              <span class="text-danger">Password is required !</span>
+            }
+          </div>
+          @if(errorMessage){
+            <div class="text-danger mb-2">{{ errorMessage }}</div>
+          }
+          <input type="submit" value="submit" [disabled]="form.invalid || isSubmitting" class="btn btn-primary">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
